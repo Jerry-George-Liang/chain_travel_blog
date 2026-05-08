@@ -5,7 +5,7 @@ import { traeBadgePlugin } from 'vite-plugin-trae-solo-badge';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Chain_travel_resume/',
+  base: '/chain-travel-blog/',
   build: {
     sourcemap: 'hidden',
   },
