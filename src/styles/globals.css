@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   CSS 变量
+   ============================================ */
+:root {
+  --color-primary: #00ffc8;
+  --color-primary-rgb: 0, 255, 200;
+  --color-dark: #0c0a1e;
+  --color-light: #e8f4fc;
+  --color-muted: #94a3b8;
+  --color-muted-dark: #64748b;
+}
+
+/* ============================================
+   基础样式
+   ============================================ */
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; tab-size: 4; }
+
+body {
+  min-height: 100vh; line-height: 1.6;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1rem; color: var(--color-light);
+  background-color: var(--color-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+::selection { background-color: rgba(var(--color-primary-rgb), 0.35); color: var(--color-light); }
+::-moz-selection { background-color: rgba(var(--color-primary-rgb), 0.35); color: var(--color-light); }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #0c0a1e; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.28); }
+
+a { color: inherit; text-decoration: none; }
+img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+input, button, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; border: none; background: none; }
+ul, ol { list-style: none; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+}
+
+/* ============================================
+   工具类
+   ============================================ */
+.glass {
+  background: rgba(12, 10, 30, 0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.glass-strong {
+  background: rgba(12, 10, 30, 0.78); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.gradient-border { position: relative; }
+.gradient-border::before {
+  content: ''; position: absolute; inset: 0; padding: 1px; border-radius: inherit;
+  background: linear-gradient(135deg, rgba(217,70,239,0.6), rgba(139,92,246,0.4), rgba(34,211,238,0.6));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.text-gradient {
+  background: linear-gradient(135deg, #d946ef, #8b5cf6, #22d3ee, #34d399);
+  background-size: 300% 300%; animation: gradientShift 8s ease-in-out infinite;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ============================================
+   ★ 通用渐变背景 (Universal Gradient System)
+   简洁、干净、一眼好看
+   ============================================ */
+
+/* Hero：大角度线性渐变（主视觉）*/
+.atmosphere-hero {
+  position: relative;
+  background:
+    linear-gradient(160deg,
+      #140a2e 0%,
+      #110d2a 15%,
+      #0f1025 35%,
+      #0c1220 55%,
+      #0a1425 75%,
+      #091220 100%
+    );
+}
+
+/* Hero 内的柔和光晕层（不是特效，只是微妙的颜色光斑）*/
+.atmosphere-hero::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 30% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 40% at 70% 30%, rgba(217, 70, 239, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 45% at 50% 80%, rgba(34, 211, 238, 0.10) 0%, transparent 55%);
+}
+
+/* 项目区域：偏冷蓝调 */
+.atmosphere-projects {
+  position: relative;
+  background:
+    linear-gradient(180deg,
+      #0c0a1e 0%,
+      #0d1024 40%,
+      #0c0a1e 100%
+    );
+}
+.atmosphere-projects::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 0%, rgba(139, 92, 246, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 35% at 85% 90%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+}
+
+/* 博客区域：偏青绿调 */
+.atmosphere-blog {
+  position: relative;
+  background:
+    linear-gradient(180deg,
+      #0a101e 0%,
+      #0b1122 50%,
+      #0a101e 100%
+    );
+}
+.atmosphere-blog::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 38% at 82% 0%, rgba(34, 211, 238, 0.07) 0%, transparent 52%),
+    radial-gradient(ellipse 42% 32% at 18% 95%, rgba(52, 211, 153, 0.05) 0%, transparent 48%);
+}
+
+/* 关于页面：偏紫粉调 */
+.atmosphere-about {
+  position: relative;
+  background:
+    linear-gradient(180deg,
+      #12091f 0%,
+      #0c0a1e 50%,
+      #0f0a1f 100%
+    );
+}
+.atmosphere-about::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 58% 42% at 28% 15%, rgba(217, 70, 239, 0.08) 0%, transparent 53%),
+    radial-gradient(ellipse 44% 33% at 72% 78%, rgba(139, 92, 246, 0.05) 0%, transparent 48%);
+}
+
+/* 装饰效果 */
+.stardust {
+  position: absolute; width: 2px; height: 2px; border-radius: 50%;
+  background: white; opacity: 0;
+  animation: twinkle var(--duration, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s); pointer-events: none;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: var(--max-opacity, 0.7); transform: scale(1.2); }
+}
+.animate-typing-cursor { animation: cursorBlink 0.8s step-end infinite; }
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Marquee 无限滚动 */
+.marquee-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.marquee-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  animation: marqueeScroll 18s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 3D 环形旋转轮播 */
+@keyframes carouselRotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) *,
+@media (prefers-reduced-motion: reduce) *::before,
+@media (prefers-reduced-motion: reduce) *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Marquee 不受 reduced-motion 限制（装饰性内容，非关键动画） */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  [style*="marqueeScroll"],
+  [style*="carouselRotate"] {
+    animation-duration: 18s !important;
+    animation-iteration-count: infinite !important;
+    animation-name: marqueeScroll, carouselRotate !important;
+  }
+}
+
+/* ============================================
+   Logo 光晕呼吸动画
+   ============================================ */
+@keyframes glowBreath {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes barGrow {
+  from { transform: scaleY(0); transform-origin: bottom; }
+  to { transform: scaleY(1); transform-origin: bottom; }
+}

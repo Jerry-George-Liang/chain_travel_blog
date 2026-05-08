@@ -1,0 +1,16 @@
+{
+  "name": "梁福昇",
+  "title": ["全栈开发工程师", "区块链开发者", "AI 应用开发者", "技术写作者", "Java / SpringBoot 后端开发", "React / Vue 前端工程师", "RAG 知识库架构师", "开源爱好者", "金砖全国一等奖获得者", "深圳职业技术大学 · 区块链技术"],
+  "avatar": "/images/avatar.jpg",
+  "bio": "全栈开发工程师，精通 Java/SpringBoot 后端与 Vue.js/React 前端开发，具备完整的全栈项目落地能力。熟练掌握 RAG 架构设计、LangChain4j 集成、向量数据库应用，具备 AI 应用全栈开发实战经验。金砖国家技能大赛全国一等奖获得者，可在 Linux 环境独立完成应用部署，熟悉 Docker 容器化与微服务架构。",
+  "email": "13642533686@163.com",
+  "phone": "13642533686",
+  "location": "深圳",
+  "education": "深圳职业技术大学 · 区块链技术与应用",
+  "socialLinks": {
+    "github": "https://github.com/2401-88861251",
+    "csdn": "https://blog.csdn.net/2401_88861251",
+    "linkedin": "https://linkedin.com/in/liangfusheng",
+    "twitter": "https://twitter.com/liangfusheng_dev"
+  }
+}
